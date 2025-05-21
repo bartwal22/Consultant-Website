@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme{
+  --primary-color: #e1c89d;
+  --secondary-color: #151f23;
+  --tertiary-color: #4b6866;
+  --yellow-color: #c6ac77;
+  --DarkYellow-color: #c4a963;
+  --brown-color: #231f20;
+
+
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("./custom.otf") format("truetype");
+}
+*{
+  font-family: "myFont", sans-serif;
+}
+.spin {
+  animation: spin 15s linear infinite;
+}
+
+.jump {
+  animation: jumpAni 7s linear infinite;
+}
+
+@keyframes jumpAni {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
