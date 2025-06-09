@@ -3,7 +3,7 @@ import { Card } from "./Card";
 
 export const Index = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-1 lg:gap-6 lg:px-10 lg:py-8">
+    <section className="bg-[#121212] grid grid-cols-1 gap-8 px-6 py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 rounded-xl">
       <Card />
       <Card />
       <Card />

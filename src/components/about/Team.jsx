@@ -7,7 +7,8 @@ const teamMembers = [
   {
     name: "Andrew Smith",
     role: "Advisor",
-    imageUrl: "/andrew-smith.jpg",
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2024/10/09/10/52/man-9107619_960_720.png",
   },
   {
     name: "Ethan Matthew",
@@ -22,8 +23,9 @@ const teamMembers = [
 ];
 
 export const Team = () => {
-  const { data , isSuccess, isError, isLoading} = useGetTeamQuery({
-    page:1, limit:10
+  const { data, isSuccess, isError, isLoading } = useGetTeamQuery({
+    page: 1,
+    limit: 10,
   });
 
   return (
@@ -41,7 +43,7 @@ export const Team = () => {
         </div>
 
         <div className="flex flex-wrap justify-center md:gap-6 md:p-6  gap-4 mb-4 lg:mb-0">
-          { data?.allTeam?.map((member, index) => (
+          {data?.allTeam?.map((member, index) => (
             <div
               key={index}
               className="relative bg-white rounded-2xl shadow-lg lg:w-100 w-[90%] overflow-hidden"
@@ -64,7 +66,9 @@ export const Team = () => {
                 <h3 className="text-lg font-semibold text-gray-900">
                   {member?.name}
                 </h3>
-                <p className="text-[var(--DarkYellow-color)]">{member?.designation}</p>
+                <p className="text-[var(--DarkYellow-color)]">
+                  {member?.designation}
+                </p>
               </div>
             </div>
           ))}

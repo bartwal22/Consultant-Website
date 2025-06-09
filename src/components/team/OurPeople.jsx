@@ -1,59 +1,80 @@
 import React from "react";
-import { Bounce } from "react-awesome-reveal";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
-import { FaShareAlt } from "react-icons/fa";
-
-export const TeamCard = ({ name, role, image }) => {
+const TeamCard = ({ name, role, image }) => {
   return (
-    <div className="overflow-hidden md:w-100 text-center">
-      {/* Image Section */}
-      <div className="relative rounded-xl">
+    <div className="bg-[#1e1e26] text-white rounded-lg shadow-lg flex flex-col items-center p-4 w-full md:w-[300px] hover:shadow-2xl transition-shadow duration-300">
+      {/* Image */}
+      <div className="w-[150px] h-[150px] overflow-hidden rounded-md mb-4">
         <img
           src={image}
           alt={name}
-          className="w-full md:h-96 h-68 object-cover rounded-xl"
+          className="w-full h-full object-cover rounded-md"
         />
-
-        {/* Share Button */}
-        <button className="absolute bottom-0 right-0 bg-[var(--secondary-color)] p-2  shadow-md rounded-br-xl rounded-tl-xl">
-          <FaShareAlt className="text-[var(--yellow-color)]" />
-        </button>
       </div>
 
-      {/* Details Section */}
-      <div className="md:p-4 p-2 bg-white shadow-2xl w-[70%] mx-auto rounded-br-xl rounded-bl-xl">
-        <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
-        <p className="text-[var(--DarkYellow-color)] font-medium bg-[var(--secondary-color)] px-3 py-1 rounded-md inline-block md:mt-2">
-          {role}
-        </p>
+      {/* Name and Role */}
+      <h3 className="text-xl font-semibold">{name}</h3>
+      <p className="text-[#e58f00] text-sm mt-1 mb-3">{role}</p>
+      <p className="text-sm text-gray-300 mb-4 text-center">
+        Adipiscing elit, sed do eiusmod tempor incididunt ut labore
+      </p>
+
+      {/* Social Icons */}
+      <div className="flex space-x-4">
+        <FaFacebookF className="text-gray-300 hover:text-white cursor-pointer" />
+        <FaTwitter className="text-gray-300 hover:text-white cursor-pointer" />
+        <FaInstagram className="text-gray-300 hover:text-white cursor-pointer" />
       </div>
     </div>
   );
 };
 
 export const OurPeople = () => {
-  return (
-    <section className="overflow-hidden bg-white">
-      <div className="bg-slate-200 lg:px-16 px-4 lg:py-12 py-4 md:rounded-tl-[3rem] md:rounded-br-[3rem]">
-        <div className="flex justify-center items-center flex-col md:gap-4 md:mb-0 mb-4">
-          <Bounce>
-            <h1 className="font-bold lg:text-5xl text-2xl text-[var(--secondary-color)]">
-              Our Dedicated People
-            </h1>
-          </Bounce>
-          <p className="text-[var(--secondary-color)] md:text-lg text-sm text-center md:text-left   font-normal">
-            We love what we do and we do it with passion. We value the
-            experimentation of the message and smart incentives.
-          </p>
-        </div>
+  const teamMembers = [
+    {
+      name: "Jeffrey Brown",
+      role: "Creative Leader",
+      image:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      name: "Alex Greenfield",
+      role: "Programming Guru",
+      image:
+        "https://cdn.pixabay.com/photo/2024/11/10/12/33/businessman-9187765_1280.jpg",
+    },
+    {
+      name: "Ann Richmond",
+      role: "Manager",
+      image:
+        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+  ];
 
-        <div className="lg:mt-8">
-          <TeamCard
-            name="Andrew Smith"
-            role="Advisor"
-            image="https://cdn.pixabay.com/photo/2024/03/19/15/20/woman-8643445_1280.png"
-          />
-        </div>
+  return (
+    <section className="bg-[#15161a] text-white py-12 px-6">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-5xl font-bold mb-2">Our Team</h2>
+        <p className="text-gray-400 max-w-xl mx-auto">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident.
+        </p>
+      </div>
+
+      {/* Team Grid */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+        {teamMembers.map((member, index) => (
+          <TeamCard key={index} {...member} />
+        ))}
+      </div>
+
+      {/* Learn More Button */}
+      <div className="flex justify-center mt-10">
+        <button className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition-all">
+          Learn More
+        </button>
       </div>
     </section>
   );

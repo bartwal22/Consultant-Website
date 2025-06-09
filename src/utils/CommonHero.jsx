@@ -1,19 +1,31 @@
 import React from "react";
 
-export const CommonHero = ({item}) => {
-  console.log(item)
+export const CommonHero = ({ item }) => {
   return (
-    <section className="lg:h-[65vh] h-[45vh] w-full overflow-hidden flex justify-center items-center">
-      <div className="bg-[url('https://cdn.pixabay.com/photo/2020/01/29/20/24/building-4803602_1280.jpg')] bg-cover bg-center w-full h-full flex md:justify-between justify-center items-center gap-4 text-white bg-[rgba(0,0,0,0.5)] md:rounded-br-[10rem] lg:px-10">
-        <div>
-          <h1 className="lg:text-6xl font-bold md:block hidden">{item.tittle}</h1>
-        </div>
-
-      
-          <div className="flex  gap-2 rounded-br-[3rem] rounded-tl-[3rem] bg-white text-[var(--tertiary-color)] font-semibold text-lg lg:px-8 px-6 lg:py-3 py-2 mt-18 md:mt-0">
-            <p>Home</p>/<p className="text-[var(--DarkYellow-color)]">{item.tittle}</p>
-          </div>
-       
+    <section
+      className="w-full lg: h-[40vh] lg:h-[50vh] flex flex-col justify-center items-center text-center px-4 relative"
+      style={{
+        background: "linear-gradient(135deg, #1e1b18, #0d0c0a 70%)",
+      }}
+    >
+      <h1
+        className="absolute bottom-[3rem] text-4xl lg:text-6xl font-bold mb-6"
+        style={{
+          background: "linear-gradient(90deg, #b59a42, #f6e27f, #b59a42)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          MozBackgroundClip: "text",
+          MozTextFillColor: "transparent",
+        }}
+      >
+        {item.tittle}
+      </h1>
+      <div className="absolute bottom-[1rem] flex gap-3 items-center bg-transparent border-2 border-yellow-500 px-6 py-2 rounded-lg text-yellow-500 font-semibold text-md lg:text-lg select-none">
+        <p className="hover:text-yellow-300 cursor-pointer transition-colors">
+          Home
+        </p>
+        <span className="text-yellow-400">/</span>
+        <p className="text-yellow-300">{item.tittle}</p>
       </div>
     </section>
   );

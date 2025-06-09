@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Blog } from "./pages/Blog";
@@ -20,7 +20,6 @@ import "slick-carousel/slick/slick-theme.css";
 import BlogInfo from "./pages/BlogInfo";
 import Project from "./pages/Project";
 import { FaWhatsapp } from "react-icons/fa6";
-
 
 function App() {
   return (
@@ -47,9 +46,8 @@ function App() {
       </Router>
 
       <div className="fixed bottom-6 right-6 bg-green-600 text-white p-2 rounded-full cursor-pointer shadow-lg hover:bg-teal-600 transition z-50">
-        <FaWhatsapp className="h-full w-full lg:text-4xl text-lg"/>
+        <FaWhatsapp className="h-full w-full lg:text-4xl text-lg" />
       </div>
-      
 
       <Footer />
     </>

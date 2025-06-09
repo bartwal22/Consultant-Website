@@ -5,7 +5,8 @@ const blogPosts = [
   {
     id: 1,
     category: "Business",
-    image: "https://via.placeholder.com/400", // Replace with actual image URL
+    image:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
     author: "Markus David",
     date: "1 Year Ago",
     title: "Building Performance Teams & Cultivating Leadership",
@@ -13,7 +14,8 @@ const blogPosts = [
   {
     id: 2,
     category: "Business",
-    image: "https://via.placeholder.com/400", // Replace with actual image URL
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
     author: "Markus David",
     date: "1 Year Ago",
     title: "How Business Consulting Services Provide Stability",
@@ -21,7 +23,8 @@ const blogPosts = [
   {
     id: 3,
     category: "Business",
-    image: "https://via.placeholder.com/400", // Replace with actual image URL
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80",
     author: "Markus David",
     date: "1 Year Ago",
     title: "Making Smarter Decisions for the Future Development",
@@ -30,45 +33,58 @@ const blogPosts = [
 
 export const Blog = () => {
   return (
-    <section className="w-full lg:py-10 py-6 lg:h-screen lg:px-10">
+    <section className="w-full lg:py-16 py-10 lg:px-10 px-4 bg-gradient-to-br from-black via-[#aa9c47] to-black">
       {/* Header Section */}
-      <div className="text-center md:mb-10 mb-4">
-        <p className="text-lg font-bold text-[var(--primary-color)] uppercase">
+      <div className="text-center mb-10">
+        <p className="text-lg font-bold text-yellow-400 uppercase tracking-wide">
           Recent Blog Posts
         </p>
-        {/* <Fade triggerOnce> */}
-
-        <h2 className="md:text-5xl text-3xl font-bold text-gray-800">
-          Articles Daily Updated
-        </h2>
-        {/* </Fade> */}
+        <Fade triggerOnce direction="up">
+          <h2 className="md:text-5xl text-3xl font-bold text-white mt-2">
+            Articles Daily Updated
+          </h2>
+        </Fade>
+        <div className="w-24 h-1 mx-auto mt-4 bg-yellow-400 rounded"></div>
+        <p className="text-gray-300 text-base mt-4 max-w-xl mx-auto">
+          Stay informed with the latest business insights and leadership
+          strategies. Discover what's trending in the world of business today.
+        </p>
       </div>
 
       {/* Blog Cards */}
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:px-10 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogPosts.map((post) => (
-          <div key={post.id} className="bg-white relative overflow-hidden">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/04/19/21/10/frog-1339892_1280.jpg"
-              alt={post.title}
-              className="lg:w-full lg:h-[18rem] object-cover lg:rounded-[1.5rem]"
-            />
-            <div className="p-5">
-              <span className="bg-[var(--primary-color)] text-black lg:text-[0.8rem] text-[0.9rem]  uppercase font-semibold lg:px-5 px-3 lg:py-1 lg:rounded-[0.4rem] absolute top-[5%]">
-                {post.category}
-              </span>
-              <div className="text-gray-600 lg:text-lg text-sm font-semibold md:mt-2">
-                <p>
-                  Posted By: {post.author} • <span className="text-slate-400">{post.date}</span>
-                </p>
+          <Fade triggerOnce direction="up" key={post.id}>
+            <div className="bg-[#111827] rounded-2xl border border-transparent hover:border-yellow-400 shadow-lg transform hover:-translate-y-2 transition duration-300 overflow-hidden">
+              <div className="relative group">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                  className="w-full h-56 object-cover transform group-hover:scale-105 transition duration-300"
+                />
+                <span className="absolute top-4 left-4 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm uppercase">
+                  {post.category}
+                </span>
               </div>
-              <h3 className="lg:text-[1.4rem] text-lg font-bold text-gray-900 md:mt-2">
-                {post.title}
-              </h3>
+              <div className="p-5">
+                <p className="text-sm text-gray-400 font-medium">
+                  Posted by{" "}
+                  <span className="text-white font-semibold">
+                    {post.author}
+                  </span>{" "}
+                  • {post.date}
+                </p>
+                <h3 className="text-xl font-bold text-white mt-2 hover:text-yellow-400 transition duration-200">
+                  {post.title}
+                </h3>
+              </div>
             </div>
-          </div>
+          </Fade>
         ))}
       </div>
     </section>
   );
 };
+
+export default Blog;

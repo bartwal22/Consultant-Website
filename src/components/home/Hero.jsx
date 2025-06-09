@@ -4,56 +4,92 @@ import { HiArrowSmRight } from "react-icons/hi";
 
 export const Hero = () => {
   return (
-    <section className="lg:h-[120vh] bg-[#0d0c0d] relative overflow-hidden pt-[12rem] md:pt-[18rem] px-6">
-      {/* Background Elements */}
-      <div className="absolute w-[80vw] max-w-[800px] h-[80vh] max-h-[965px] bg-[#ffcc3fcc] rounded-[60px] rotate-[-35.62deg] translate-x-1/2 -translate-y-1/2 -top-10 right-[40%]"></div>
+    <section className="lg:h-[120vh] bg-[radial-gradient(ellipse_at_bottom,_#fff085_0%,_#1e1e1e_50%,_#000000_100%)] relative overflow-hidden pt-[10rem] md:pt-[16rem] px-6">
+      {/* Background Decorations */}
+      <div className="absolute w-[80vw] max-w-[700px] h-[60vh] max-h-[965px] bg-[#ffcc3fcc] rounded-[80px] rotate-[-40.62deg] translate-x-1/2 -translate-y-1/2 -top-9 right-[40%]"></div>
       <div className="absolute w-[158px] h-[87px] bg-[#ffcc3f] opacity-25 rounded-t-full left-[50px] top-[25%] spin"></div>
       <div className="absolute w-[48px] h-[48px] bg-[#ffcc3f] opacity-25 rounded-full left-[36px] top-[35%] jump"></div>
 
-      <div className="flex flex-col lg:flex-row lg:pl-[4%] lg:pr-[4%] w-full gap-10 ">
-        {/* Left Content */}
-        <div className="lg:w-[40%] flex flex-col gap-6 text-center lg:text-left">
-          {/* <Slide triggerOnce delay={200}> */}
-            <p className="text-[#f5f6f0] font-normal text-lg md:text-xl z-10">
-              Welcome to A2Y Consultant
+      <div className="flex flex-col lg:flex-row lg:px-[5%] w-full gap-y-10 gap-x-12 z-10 relative">
+        {/* Left Text Content */}
+        <div className="lg:w-[45%] flex flex-col gap-6 text-center lg:text-left">
+          <Slide
+            triggerOnce
+            direction="left"
+            duration={1000}
+            easing="ease-out-cubic"
+          >
+            <p className="text-[#f5f6f0] text-lg md:text-xl font-medium">
+              Welcome to{" "}
+              <span className="text-[#F4CE14] font-semibold">
+                A2Y Consultant
+              </span>
             </p>
-          {/* </Slide> */}
+          </Slide>
 
-          {/* <Slide triggerOnce delay={300}> */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#ffcc3f] tracking-wide leading-tight z-10">
-              Need A Custom Plan? Ask About Enterprise
+          <Slide
+            triggerOnce
+            delay={150}
+            direction="left"
+            duration={1200}
+            easing="ease-out-cubic"
+          >
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F4CE14] leading-tight tracking-wide">
+              Need A Custom Plan?
+              <span className="text-3xl md:text-4xl lg:text-5xl block">
+                Ask About Enterprise
+              </span>
             </h1>
-          {/* </Slide> */}
+          </Slide>
 
-          {/* <Slide triggerOnce delay={400}> */}
-            <p className="text-[#f5f6f0] font-normal text-sm md:text-base lg:text-lg leading-relaxed z-10">
+          <Slide
+            triggerOnce
+            delay={300}
+            direction="left"
+            duration={1200}
+            easing="ease-out-cubic"
+          >
+            <p className="text-[#f5f6f0] text-base md:text-lg leading-relaxed opacity-90">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis
-              ea laborum ut tempora corrupti incidunt eligendi delectus, officia
-              natus totam!
+              ea laborum ut tempora corrupti incidunt eligendi
             </p>
-          {/* </Slide> */}
+          </Slide>
 
-          <div className="flex justify-center lg:justify-start">
-            {/* <Slide triggerOnce delay={500}> */}
+          <Slide
+            triggerOnce
+            delay={400}
+            direction="left"
+            duration={1200}
+            easing="ease-out-cubic"
+          >
+            <div className="flex justify-center lg:justify-start">
               <a href="/contact">
-                <button className="px-6 md:px-8 py-3 md:py-4 bg-[#f5f6f0] text-[#0d0c0d] font-semibold flex items-center justify-center text-lg w-fit rounded-[2rem] cursor-pointer shadow-[0_0_10px_#f5f6f0] hover:shadow-[0_0_14px_#ffcc3f] hover:bg-[#ffcc3f] hover:text-[#0d0c0d] transition-all duration-300 ease-in-out">
+                <button className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-200 text-[#0d0c0d] font-semibold flex items-center text-lg rounded-full shadow-md hover:shadow-yellow-400 hover:scale-105 hover:bg-gradient-to-l transition-transform transition-shadow transition-colors duration-300 ease-in-out">
                   Contact With Us <HiArrowSmRight size={24} className="ml-2" />
                 </button>
               </a>
-            {/* </Slide> */}
-          </div>
+            </div>
+          </Slide>
         </div>
 
-        {/* Right Image */}
-        <div className="w-full lg:w-[50%] flex lg:pb-0 pb-8">
-          <div className="rounded-4xl border-2 border-[#ffcc3f] p-0 md:p-10 rotate-0 lg:-rotate-20 h-[50vh] md:h-[70vh] lg:h-[90vh] w-full  lg:w-[90vh] md:absolute right-0 ">
-            <img
-              src="https://cdn.pixabay.com/photo/2024/02/19/09/21/ai-generated-8582949_1280.jpg"
-              alt=""
-              className="rounded-4xl h-full w-full object-cover"
-            />
+        {/* Right Image Content */}
+        <Slide
+          triggerOnce
+          delay={400}
+          direction="right"
+          duration={1400}
+          easing="ease-out-cubic"
+        >
+          <div className="w-full lg:w-[100%] flex justify-end items-center relative z-10 pl-6 lg:pl-16">
+            <div className="rounded-[3rem] border-4 border-[#F4CE14] p-2 md:p-1 rotate-0 lg:-rotate-12 h-[60vh] md:h-[80vh] lg:h-[90vh] w-[95%] max-w-[850px] transition-transform duration-500 hover:scale-105 shadow-xl">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/02/19/09/21/ai-generated-8582949_1280.jpg"
+                alt="AI Visual"
+                className="rounded-[3rem] h-full w-full object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </Slide>
       </div>
     </section>
   );

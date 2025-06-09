@@ -3,14 +3,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Bounce } from "react-awesome-reveal";
 
 const cards = [
   {
     id: 1,
     title: "Strategic Roadmap Development",
     description:
-      "Bring to the table win survival strategies to ensure proactive domination service development",
+      "Bring to the table win survival strategies to ensure proactive domination service development.",
     image:
       "https://cdn.pixabay.com/photo/2021/01/08/17/03/mountains-5900416_1280.jpg",
   },
@@ -18,7 +17,7 @@ const cards = [
     id: 2,
     title: "Business Growth Development",
     description:
-      "Bring to the table win survival strategies to ensure proactive domination service development",
+      "Innovative solutions tailored to accelerate sustainable and measurable growth for your business.",
     image:
       "https://cdn.pixabay.com/photo/2021/01/08/17/03/mountains-5900416_1280.jpg",
   },
@@ -26,7 +25,7 @@ const cards = [
     id: 3,
     title: "Marketing Strategy Planning",
     description:
-      "Bring to the table win survival strategies to ensure proactive domination service development",
+      "Crafting impactful marketing strategies to elevate your brand visibility and audience reach.",
     image:
       "https://cdn.pixabay.com/photo/2021/01/08/17/03/mountains-5900416_1280.jpg",
   },
@@ -39,67 +38,61 @@ export const Project = () => {
     dots: false,
     infinite: true,
     speed: 500,
+    arrows: false,
     slidesToShow: 2,
     slidesToScroll: 1,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
-    <section className="lg:h-screen h-full overflow-hidden w-full lg:py-0 py-6">
-      <div className="text-center lg:mb-10 lg:mt-10">
-        <p className="text-[#ffcc3f] font-bold uppercase lg:text-lg text-sm">
+    <section className="w-full bg-[#1a1a1a] py-10 lg:py-20 overflow-hidden relative">
+      {/* Heading */}
+      <div className="text-center mb-10 px-4">
+        <p className="text-[#ffcc3f] font-bold uppercase text-sm md:text-base tracking-wider">
           Complete Projects
         </p>
-        {/* <Bounce delay={300} triggerOnce> */}
-        <h2 className="lg:text-5xl text-2xl font-bold text-black">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mt-2 bg-gradient-to-r from-yellow-400 to-white text-transparent bg-clip-text drop-shadow-[0_2px_6px_rgba(255,255,255,0.4)]">
           Our Recently Completed Projects
         </h2>
-        {/* </Bounce> */}
       </div>
 
-      <div className="relative w-full mx-auto lg:px-4">
+      {/* Slider Container */}
+      <div className="relative max-w-7xl mx-auto px-4">
         {/* Left Button */}
         <button
           onClick={() => sliderRef.current.slickPrev()}
-          className="absolute lg:left-2 left-1 top-1/2 transform -translate-y-1/2 z-10 bg-white lg:p-3 p-1 rounded-full shadow-lg hover:scale-110 transition cursor-pointer border-[#ffcc3f] border-2"
+          className="absolute left-0 lg:left-2 top-1/2 transform -translate-y-1/2 z-10 bg-[#1a1a1a] p-2 lg:p-3 rounded-full border-2 border-[#ffcc3f] text-[#ffcc3f] shadow hover:scale-110 transition"
         >
-          <FaChevronLeft size={24} />
+          <FaChevronLeft size={20} />
         </button>
 
         {/* Slider */}
-        <Slider ref={sliderRef} {...settings} className="lg:px-10 px-6">
+        <Slider ref={sliderRef} {...settings}>
           {cards.map((card) => (
-            <div key={card.id} className="lg:px-3 px-1 py-2">
+            <div key={card.id} className="px-2 lg:px-4">
               <div
-                className="relative rounded-lg overflow-hidden w-full h-[20rem] lg:h-[28rem] bg-cover bg-center lg:px-10"
+                className="relative h-[22rem] lg:h-[28rem] rounded-xl bg-cover bg-center shadow-xl overflow-hidden group"
                 style={{ backgroundImage: `url(${card.image})` }}
               >
-                {/* Category badge */}
-                <div className="absolute lg:bottom-[45%] bottom-[55%] left-7">
-                  <div className="bg-[#999fa2] text-[#0d0c0d] lg:text-sm text-[0.8rem] lg:font-semibold font-normal lg:px-6 px-4 py-3 rounded-full">
-                    BUILDING,BUSINESS,GROWTH
-                  </div>
+                {/* Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="bg-[#ffcc3f] text-black text-xs lg:text-sm font-medium px-4 py-1.5 rounded-full shadow">
+                    BUILDING, BUSINESS, GROWTH
+                  </span>
                 </div>
 
-                {/* Content panel */}
-                <div className="absolute lg:bottom-7 bottom-10 left-7 right-7 bg-white lg:p-6 p-4 rounded-[1rem]">
-                  <h2 className="text-[#0d0c0d] lg:text-2xl text-lg font-bold lg:mb-3">
+                {/* Content */}
+                <div className="absolute bottom-5 left-4 right-4 bg-white/90 p-4 lg:p-6 rounded-2xl backdrop-blur-sm shadow-md transition-all duration-300 group-hover:scale-[1.01]">
+                  <h3 className="text-lg lg:text-2xl font-bold text-[#0d0c0d] mb-2">
                     {card.title}
-                  </h2>
-                  <div className="border-t border-gray-200 lg:pt-4 lg:mt-1 ">
-                    <p className="text-gray-600  text-sm lg:text-lg">
-                      {card.description}
-                    </p>
-                  </div>
+                  </h3>
+                  <hr className="border-gray-300 my-2" />
+                  <p className="text-sm lg:text-base text-gray-700">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -109,9 +102,9 @@ export const Project = () => {
         {/* Right Button */}
         <button
           onClick={() => sliderRef.current.slickNext()}
-          className="absolute lg:right-2 right-1 top-1/2 transform -translate-y-1/2 z-10 bg-white lg:p-3 p-1 rounded-full shadow-lg hover:scale-110 transition cursor-pointer border-[#ffcc3f] border-2"
+          className="absolute right-0 lg:right-2 top-1/2 transform -translate-y-1/2 z-10 bg-[#1a1a1a] p-2 lg:p-3 rounded-full border-2 border-[#ffcc3f] text-[#ffcc3f] shadow hover:scale-110 transition"
         >
-          <FaChevronRight size={24} />
+          <FaChevronRight size={20} />
         </button>
       </div>
     </section>

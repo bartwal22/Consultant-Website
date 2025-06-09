@@ -25,36 +25,36 @@ const stats = [
 
 export const Milestone = () => {
   return (
-    <section className="lg:h-[40vh] md:px-0 px-4 w-full overflow-hidden flex items-center justify-center">
+    <section className="h-screen md:px-0 px-4 w-full overflow-hidden flex items-end justify-center bg-gradient-to-r from-black via-gray-900 to-black pb-20">
       <div className="flex flex-wrap justify-center gap-6 md:p-6 p-2">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="md:p-14 p-12 bg-gradient-to-b from-gray-100 to-white shadow-md w-100  border border-gray-200 rounded-tl-[3rem] rounded-br-[3rem]"
+            className="md:p-14 p-10 bg-[rgba(20,20,20,0.75)] border border-[var(--DarkYellow-color)] rounded-tl-[3rem] rounded-br-[3rem] shadow-xl transition-transform hover:scale-105 duration-300"
           >
             <Bounce triggerOnce>
-              <h2 className="text-4xl font-bold text-gray-900">
-              <CountUp
-                start={0}
-                end={parseFloat(stat.value)}
-                duration={2}
-                enableScrollSpy
-                scrollSpyOnce
-                suffix={
-                  stat.value.includes("%")
-                    ? "%"
-                    : stat.value.includes("M")
-                    ? "M"
-                    : stat.value.includes("+")
-                    ? "+"
-                    : ""
-                }
-              />
+              <h2 className="text-4xl font-bold text-[var(--DarkYellow-color)] text-center">
+                <CountUp
+                  start={0}
+                  end={parseFloat(stat.value)}
+                  duration={2}
+                  enableScrollSpy
+                  scrollSpyOnce
+                  suffix={
+                    stat.value.includes("%")
+                      ? "%"
+                      : stat.value.includes("M")
+                      ? "M"
+                      : stat.value.includes("+")
+                      ? "+"
+                      : ""
+                  }
+                />
               </h2>
-              <p className="lg:text-lg font-bold text-[var(--DarkYellow-color)] mt-2">
+              <p className="lg:text-lg font-bold text-white mt-2 text-center uppercase">
                 {stat.label}
               </p>
-              <p className="text-gray-500 text-lg font-normal mt-2">
+              <p className="text-gray-300 text-md font-normal mt-2 text-center">
                 {stat.description}
               </p>
             </Bounce>
